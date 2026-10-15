@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Caio Henrique | Design de Fachadas & Identidade Visual</title>
+  <style>
+    /* RESET & ESTILOS BASE */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background-color: #0f172a;
+      color: #f8fafc;
+      line-height: 1.6;
+    }
+    a { text-decoration: none; }
+
+    /* LAYOUT CONTAINERS */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    section {
+      padding: 60px 0;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      text-align: center;
+      padding: 90px 20px 60px;
+      background: radial-gradient(circle at top, #1e293b, #0f172a);
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      color: #ffffff;
+      margin-bottom: 20px;
+    }
+    .hero h1 span {
+      color: #38bdf8; /* Azul destaque */
+    }
+    .hero p {
+      font-size: 1.2rem;
+      color: #94a3b8;
+      max-width: 700px;
+      margin: 0 auto 30px;
+    }
+
+    /* BOTÃO WHATSAPP (CTA) */
+    .btn-whatsapp {
+      display: inline-block;
+      background-color: #22c55e;
+      color: #ffffff;
+      font-weight: bold;
+      font-size: 1.1rem;
+      padding: 16px 32px;
+      border-radius: 50px;
+      box-shadow: 0 10px 25px rgba(34, 197, 94, 0.3);
+      transition: transform 0.2s, background-color 0.2s;
+    }
+    .btn-whatsapp:hover {
+      background-color: #16a34a;
+      transform: translateY(-3px);
+    }
+
+    /* BENEFÍCIOS / DIFERENCIAIS */
+    .features {
+      background-color: #1e293b;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin-top: 40px;
+    }
+    .card {
+      background-color: #0f172a;
+      padding: 30px;
+      border-radius: 12px;
+      border: 1px solid #334155;
+    }
+    .card h3 {
+      color: #38bdf8;
+      margin-bottom: 12px;
+      font-size: 1.3rem;
+    }
+    .card p {
+      color: #cbd5e1;
+      font-size: 0.95rem;
+    }
+
+    /* PORTFÓLIO / GALERIA */
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    .section-subtitle {
+      text-align: center;
+      color: #94a3b8;
+      margin-bottom: 40px;
+    }
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .portfolio-item {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid #334155;
+      background-color: #1e293b;
+      min-height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .portfolio-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* CTA FINAL */
+    .cta-final {
+      text-align: center;
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      border-top: 1px solid #334155;
+    }
+
+    /* RODAPÉ */
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #64748b;
+      font-size: 0.85rem;
+      border-top: 1px solid #1e293b;
+    }
+
+    /* RESPONSIVIDADE */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 1.8rem; }
+      .hero p { font-size: 1rem; }
+      section { padding: 40px 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. HERO SECTION (Apresentação Principal) -->
+  <section class="hero">
+    <div class="container">
+      <h1>Transforme a <span>Fachada do seu Negócio</span> em um Ímã de Clientes</h1>
+      <p>Desenvolvo projetos de fachadas comerciais em 3D e logomarcas profissionais para destacar sua loja na rua e passar total credibilidade.</p>
+      <!-- COLOQUE SEU NÚMERO DO WHATSAPP ABAIXO -->
+      <a href="https://wa.me/5500000000000?text=Olá!%20Gostaria%20de%20um%20orçamento%20para%20fachada/logo." class="btn-whatsapp" target="_blank">
+        💬 Solicitar Orçamento Grátis
+      </a>
+    </div>
+  </section>
+
+  <!-- 2. POR QUE INVESTIR EM UMA FACHADA? -->
+  <section class="features">
+    <div class="container">
+      <h2 class="section-title">Por que o Design Certo Faz Diferença?</h2>
+      <p class="section-subtitle">O visual da sua loja física é o primeiro vendedor do seu produto.</p>
+      
+      <div class="grid-3">
+        <div class="card">
+          <h3>📐 Visualização em 3D</h3>
+          <p>Veja exatamente como a fachada da sua loja vai ficar antes de gastar 1 real com a fabricação do letreiro.</p>
+        </div>
+        <div class="card">
+          <h3>🏭 Arquivos Prontos para Produção</h3>
+          <p>Entrego todos os vetores organizados (PDF/EPS) para você enviar direto para a empresa de comunicação visual sem dores de cabeça.</p>
+        </div>
+        <div class="card">
+          <h3>👁️ Destaque da Concorrência</h3>
+          <p>Sua fachada visível de longe, legível de dia e com iluminação planejada para a noite.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. GALERIA DE PROJETOS (PORTFÓLIO) -->
+  <section class="portfolio">
+    <div class="container">
+      <h2 class="section-title">Projetos em Destaque</h2>
+      <p class="section-subtitle">Confira alguns conceitos de fachadas e identidades visuais:</p>
+      
+      <div class="portfolio-grid">
+        <!-- Substitua 'seu-projeto-1.jpg' pelas imagens das suas artes -->
+        <div class="portfolio-item">
+          <img src="seu-projeto-1.jpg" alt="Projeto de Fachada Comercial">
+        </div>
+        <div class="portfolio-item">
+          <img src="seu-projeto-2.jpg" alt="Criação de Logomarca">
+        </div>
+        <div class="portfolio-item">
+          <img src="seu-projeto-3.jpg" alt="Projeto 3D de Letreiro">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. CHAMADA FINAL PARA AÇÃO -->
+  <section class="cta-final">
+    <div class="container">
+      <h2 class="section-title">Pronto para modernizar a imagem do seu comércio?</h2>
+      <p class="section-subtitle" style="margin-bottom: 25px;">Me mande uma mensagem no WhatsApp e vamos conversar sobre a sua ideia sem compromisso.</p>
+      <a href="https://wa.me/5593991478073?text=Olá!%20Gostaria%20de%20um%20orçamento%20para%20fachada/logo." class="btn-whatsapp" target="_blank">
+        💬 Falar pelo WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <!-- RODAPÉ -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Caio Henrique - Designer Gráfico & Projetos Visuais. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
