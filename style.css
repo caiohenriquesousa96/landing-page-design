@@ -181,4 +181,103 @@ footer {
   padding: 35px 0;
   color: #6b7280;
   font-size: 0.9rem;
-  border
+  border-top: 1px solid #1f2937;
+  background-color: #08090c;
+}
+
+/* ==========================================
+   6. RESPONSIVIDADE (CELULARES E TABLETS)
+   ========================================== */
+@media (max-width: 900px) {
+  .hero-container, 
+  .grid-3 {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+
+  .hero {
+    padding: 40px 0;
+  }
+}
+/* ==========================================
+   6. RESPONSIVIDADE (AJUSTES PARA TELEMÓVEL)
+   ========================================== */
+@media (max-width: 768px) {
+  
+  /* Ajuste geral do espaçamento nas laterais */
+  .container {
+    padding: 0 16px;
+  }
+
+  /* 1. HERO SECTION */
+  .hero {
+    padding: 40px 0;
+    min-height: auto; /* Deixa a altura livre para ajustar ao ecran do telemóvel */
+  }
+
+  .hero-container {
+    flex-direction: column; /* Empilha o texto e a foto */
+    text-align: center;
+    gap: 30px;
+  }
+
+  .hero-text h1 {
+    font-size: 1.8rem; /* Reduz o tamanho do título para caber no ecrã */
+    line-height: 1.3;
+  }
+
+  .highlight {
+    padding: 3px 8px;
+    font-size: 1.6rem;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 25px;
+  }
+
+  .btn-whatsapp {
+    width: 100%; /* Botão ocupa a largura quase toda para ser fácil de clicar */
+    padding: 16px 20px;
+    font-size: 1rem;
+  }
+
+  .hero-image img {
+    max-width: 280px; /* Limita o tamanho da foto para não ocupar o ecran todo */
+    margin: 0 auto;
+  }
+
+  /* 2. SEÇÃO FEATURES (CARDS) */
+  .features {
+    padding: 50px 0;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+  }
+
+  .grid-3 {
+    flex-direction: column; /* Empilha os 3 cards */
+    gap: 15px;
+  }
+
+  .card {
+    padding: 25px 20px;
+  }
+
+  /* 3. GALERIA DE PROJETOS */
+  .portfolio {
+    padding: 50px 0;
+  }
+}
