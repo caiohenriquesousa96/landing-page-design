@@ -234,7 +234,7 @@ body {
 }
 
 /* ==========================================
-   4. GALERIA / PORTFÓLIO
+   4. GALERIA / PORTFÓLIO DE PROJETOS
    ========================================== */
 .portfolio {
   padding: 90px 0;
@@ -242,14 +242,92 @@ body {
 }
 
 .portfolio-grid {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
 }
 
-.portfolio-item img {
-  max-width: 100%;
+.portfolio-card {
+  background-color: #121318;
+  border: 1px solid #2a2d37;
   border-radius: 16px;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.portfolio-card:hover {
+  transform: translateY(-7px);
+  border-color: #d90429;
+  box-shadow: 0 12px 30px rgba(217, 4, 41, 0.15);
+}
+
+.portfolio-thumb {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+}
+
+/* Todas as imagens ficam sobrepostas */
+.portfolio-thumb img.slide-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0; /* Escondidas por padrão */
+  transition: opacity 0.8s ease-in-out; /* Transição suave de fade */
+}
+
+/* Apenas a imagem ativa fica visível */
+.portfolio-thumb img.slide-img.active {
+  opacity: 1;
+}
+
+.portfolio-card:hover .portfolio-thumb img {
+  transform: scale(1.06); /* Efeito de zoom na foto ao passar o mouse */
+}
+
+/* Etiqueta/Tag no topo da imagem */
+.portfolio-tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background-color: rgba(11, 12, 16, 0.85);
+  color: #ffffff;
+  border: 1px solid rgba(217, 4, 41, 0.6);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 6px;
+  backdrop-filter: blur(5px);
+  z-index: 2;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.portfolio-info {
+  padding: 22px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.portfolio-info h3 {
+  font-size: 1.2rem;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.portfolio-info p {
+  color: #9ca3af;
+  font-size: 0.92rem;
+  line-height: 1.5;
 }
 
 /* ==========================================
@@ -337,30 +415,6 @@ footer {
 .faq-item.active .faq-icon {
   transform: rotate(45deg); /* Transforma o + em x */
 }
-
-/* ==========================================
-   6. RESPONSIVIDADE (CELULARES E TABLETS)
-   ========================================== */
-@media (max-width: 900px) {
-  .hero-container, 
-  .grid-3 {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .hero-description {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .hero-text h1 {
-    font-size: 2rem;
-  }
-
-  .hero {
-    padding: 40px 0;
-  }
-}
 /* ==========================================
    6. RESPONSIVIDADE (AJUSTES PARA TELEMÓVEL)
    ========================================== */
@@ -368,23 +422,40 @@ footer {
   
   /* Ajuste geral do espaçamento nas laterais */
   .container {
-    padding: 0 16px;
+    padding: 0 20px;
   }
 
-  /* 1. HERO SECTION */
+  section {
+    padding: 50px 0; /* Padroniza o respiro entre as seções */
+  }
+
+  /* NAVBAR NO CELULAR */
+  .navbar {
+  padding: 10px 0; /* Deixa a barra do topo mais fininha no celular */
+  }
+
+  .nav-links {
+    display: none; /* Esconde os links longos no celular */
+  }
+
+  .logo {
+    font-size: 1rem;
+  }
+
+  /* 2. HERO SECTION */
   .hero {
-    padding: 40px 0;
-    min-height: auto; /* Deixa a altura livre para ajustar ao ecran do telemóvel */
+    padding: 100px 0;
+    min-height: auto;
   }
 
   .hero-container {
-    flex-direction: column; /* Empilha o texto e a foto */
+    flex-direction: column;
     text-align: center;
     gap: 30px;
   }
 
   .hero-text h1 {
-    font-size: 1.8rem; /* Reduz o tamanho do título para caber no ecrã */
+    font-size: 1.8rem;
     line-height: 1.3;
   }
 
@@ -394,34 +465,31 @@ footer {
   }
 
   .hero-description {
-    font-size: 1rem;
+    font-size: 0.98rem;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 25px;
   }
 
   .btn-whatsapp {
-    width: 100%; /* Botão ocupa a largura quase toda para ser fácil de clicar */
+    width: 100%; /* Botão ocupa a largura completa no celular */
     padding: 16px 20px;
     font-size: 1rem;
+    text-align: center;
   }
 
   .hero-image img {
-    max-width: 280px; /* Limita o tamanho da foto para não ocupar o ecran todo */
+    max-width: 280px;
     margin: 0 auto;
   }
 
-  /* 2. SEÇÃO FEATURES (CARDS) */
-  .features {
-    padding: 50px 0;
-  }
-
+  /* 3. SEÇÃO FEATURES & BENEFÍCIOS */
   .section-title {
     font-size: 1.6rem;
   }
 
   .grid-3 {
-    flex-direction: column; /* Empilha os 3 cards */
+    flex-direction: column;
     gap: 15px;
   }
 
@@ -429,36 +497,308 @@ footer {
     padding: 25px 20px;
   }
 
-  /* 3. GALERIA DE PROJETOS */
-  .portfolio {
-    padding: 50px 0;
-  }
-  
-  /* NAVBAR NO CELULAR */
-  .nav-links {
-    display: none; /* Esconde os links longos para não poluir telas pequenas */
+  /* 4. GALERIA DE PROJETOS & SLIDESHOW */
+  .portfolio-grid {
+    grid-template-columns: 1fr; /* Empilha os cards no celular */
+    gap: 25px;
   }
 
-  .navbar {
-    padding: 12px 0;
+  .portfolio-thumb {
+    height: 200px; /* Altura proporcional perfeita para o carrossel no celular */
   }
 
-  .logo {
-    font-size: 1rem;
+  .portfolio-info {
+    padding: 18px;
   }
-}
 
-/* FAQ no telemóvel */
-  .faq {
-    padding: 50px 0;
+  .portfolio-info h3 {
+    font-size: 1.15rem;
   }
-  
+
+  /* 5. FAQ NO TELEMÓVEL */
   .faq-question {
     padding: 18px 20px;
-    font-size: 1rem;
+    font-size: 0.98rem;
   }
   
   .faq-answer p {
     padding: 0 20px 18px 20px;
-    font-size: 0.95rem;
+    font-size: 0.92rem;
   }
+
+  /* 6. RODAPÉ (FOOTER) OTIMIZADO PARA CELULAR */
+  .footer {
+    padding-top: 50px;
+    text-align: center;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr; /* Transforma as 3 colunas em 1 única vertical */
+    gap: 35px;
+    padding-bottom: 30px;
+  }
+
+  .footer-col {
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-about {
+    align-items: center;
+  }
+
+  .footer-desc {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .footer-col h4::after {
+    margin: 8px auto 0 auto; /* Centraliza perfeitamente os traços vermelhos */
+  }
+
+  .footer-bottom {
+    padding: 18px 15px 85px 15px; /* Espaço extra para o botão flutuante do WhatsApp não tapar o texto */
+  }
+}
+
+/* Celulares Menores / Telas Muito Estreitas (max-width: 480px) */
+@media (max-width: 480px) {
+  .hero-text h1 {
+    font-size: 1.6rem;
+  }
+
+  .portfolio-thumb {
+    height: 185px;
+  }
+}
+  /* ==========================================
+   SEÇÃO COMO FUNCIONA
+   ========================================== */
+.how-it-works {
+  padding: 90px 0;
+  background-color: #0b0c10;
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.step-card {
+  background-color: #121318;
+  border: 1px solid #2a2d37;
+  border-radius: 16px;
+  padding: 30px 25px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.step-card:hover {
+  transform: translateY(-5px);
+  border-color: #d90429;
+}
+
+.step-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #d90429;
+  line-height: 1;
+  margin-bottom: 15px;
+  opacity: 0.9;
+}
+
+.step-card h3 {
+  font-size: 1.15rem;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.step-card p {
+  color: #9ca3af;
+  font-size: 0.95rem;
+}
+.service-note {
+  text-align: center;
+  color: #d1d5db;
+  font-size: 1.05rem;
+  margin-top: 35px;
+  padding: 15px 20px;
+  background-color: rgba(217, 4, 41, 0.1); /* Fundo avermelhado bem sutil */
+  border-left: 4px solid #d90429; /* Barra de destaque na esquerda */
+  border-radius: 8px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* NOTA DISCRETA DO PORTFÓLIO */
+.portfolio-disclaimer {
+  text-align: center;
+  color: #6b7280; /* Tom cinza suave e discreto */
+  font-size: 0.85rem;
+  margin-top: 20px;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.4;
+  font-style: italic;
+}
+
+.portfolio-disclaimer strong {
+  color: #9ca3af; /* Leve destaque para os termos chave */
+  font-style: normal;
+}
+/* ==========================================
+   BOTÃO FLUTUANTE DO WHATSAPP
+   ========================================== */
+.whatsapp-float {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 60px;
+  height: 60px;
+  background-color: #25d366;
+  color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+  z-index: 9999;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  animation: pulse-green 2s infinite;
+}
+
+.whatsapp-float:hover {
+  background-color: #20bd5a;
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+}
+
+.whatsapp-icon {
+  width: 32px;
+  height: 32px;
+}
+
+/* Animação suave de pulso */
+@keyframes pulse-green {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+/* Ajuste sutil para telas pequenas de celular */
+@media (max-width: 768px) {
+  .whatsapp-float {
+    bottom: 20px;
+    right: 20px;
+    width: 55px;
+    height: 55px;
+  }
+  
+  .whatsapp-icon {
+    width: 28px;
+    height: 28px;
+  }
+}
+/* ==========================================
+   FOOTER / RODAPÉ PROFISSIONAL
+   ========================================== */
+.footer {
+  background-color: #08090c;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 70px;
+  color: #9ca3af;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.5fr;
+  gap: 40px;
+  padding-bottom: 50px;
+}
+
+.footer-col h4 {
+  color: #ffffff;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.footer-col h4::after {
+  content: '';
+  display: block;
+  width: 30px;
+  height: 2px;
+  background-color: #d90429;
+  margin: 8px auto 0 auto; /* Centraliza a linha */
+}
+
+.footer-desc {
+  margin-top: 15px;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: #9ca3af;
+  max-width: 380px;
+  text-align: center;      /* Centraliza o texto */
+  margin-left: auto;       /* Centraliza o bloco do parágrafo */
+  margin-right: auto;      /* Centraliza o bloco do parágrafo */
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  color: #9ca3af;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #d90429;
+}
+
+.footer-col p {
+  font-size: 0.93rem;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.footer-cta {
+  margin-top: 20px;
+}
+
+/* Linha inferior dos direitos autorais */
+.footer-bottom {
+  background-color: #050507;
+  padding: 20px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  text-align: center;
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+/* Responsividade do Footer no Celular */
+@media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+}
