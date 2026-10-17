@@ -1,4 +1,78 @@
 /* ==========================================
+   NAVBAR FIXO NO TOPO (STICKY NAVBAR)
+   ========================================== */
+/* Faz a rolagem do menu ser suave ao clicar nos links */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* Garante que o topo da seção não fique escondido atrás do menu */
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(11, 12, 16, 0.92); /* Transparência discreta */
+  backdrop-filter: blur(10px); /* Efeito de vidro desfocado */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  z-index: 1000;
+  padding: 15px 0;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #ffffff;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+.logo-sub {
+  color: #d90429; /* Vermelho de destaque */
+  font-size: 0.95rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  color: #d1d5db;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #d90429;
+}
+
+/* Botão menor de WhatsApp exclusivo para a barra do topo */
+.nav-btn-whatsapp {
+  background-color: #25d366;
+  color: #ffffff;
+  padding: 8px 18px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.nav-btn-whatsapp:hover {
+  background-color: #20bd5a;
+  transform: translateY(-2px);
+}
+
+/* ==========================================
    1. CONFIGURAÇÕES GERAIS E RESET
    ========================================== */
 * {
@@ -107,7 +181,12 @@ body {
    ========================================== */
 .features {
   padding: 90px 0;
-  background-color: #121318;
+  /* O linear-gradient escurece a imagem levemente para o texto destacar, e o url aponta para a sua imagem */
+  background-image: linear-gradient(rgba(18, 19, 24, 0.88), rgba(18, 19, 24, 0.88)), url('Imagens/fundo-features.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
 }
 
 .section-title {
@@ -183,6 +262,80 @@ footer {
   font-size: 0.9rem;
   border-top: 1px solid #1f2937;
   background-color: #08090c;
+}
+
+/* ==========================================
+   5. SEÇÃO FAQ (PERGUNTAS FREQUENTES)
+   ========================================== */
+.faq {
+  padding: 90px 0;
+  background-color: #121318;
+}
+
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.faq-item {
+  background-color: #1a1c23;
+  border: 1px solid #2a2d37;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+}
+
+.faq-item:hover {
+  border-color: #d90429;
+}
+
+.faq-question {
+  width: 100%;
+  padding: 22px 25px;
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.faq-icon {
+  font-size: 1.4rem;
+  color: #d90429;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+  background-color: #15171d;
+}
+
+.faq-answer p {
+  padding: 0 25px 22px 25px;
+  color: #9ca3af;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Quando o item estiver ativo (aberto) */
+.faq-item.active .faq-answer {
+  max-height: 200px;
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(45deg); /* Transforma o + em x */
 }
 
 /* ==========================================
@@ -280,4 +433,32 @@ footer {
   .portfolio {
     padding: 50px 0;
   }
+  
+  /* NAVBAR NO CELULAR */
+  .nav-links {
+    display: none; /* Esconde os links longos para não poluir telas pequenas */
+  }
+
+  .navbar {
+    padding: 12px 0;
+  }
+
+  .logo {
+    font-size: 1rem;
+  }
 }
+
+/* FAQ no telemóvel */
+  .faq {
+    padding: 50px 0;
+  }
+  
+  .faq-question {
+    padding: 18px 20px;
+    font-size: 1rem;
+  }
+  
+  .faq-answer p {
+    padding: 0 20px 18px 20px;
+    font-size: 0.95rem;
+  }

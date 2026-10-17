@@ -12,8 +12,28 @@
 </head>
 <body>
 
+  <!-- HEADER / NAVBAR FIXO NO TOPO -->
+  <header class="navbar">
+    <div class="container navbar-container">
+      <a href="#" class="logo">
+        CAIO HENRIQUE <span class="logo-sub">| DESIGN 3D</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#hero">Início</a>
+        <a href="#features">Benefícios</a>
+        <a href="#portfolio">Projetos</a>
+        <a href="#faq">Dúvidas</a>
+      </nav>
+
+      <a href="https://wa.me/5593991478073?text=Olá!%20Gostaria%20de%20um%20orçamento%20para%20fachada/logo." class="nav-btn-whatsapp" target="_blank">
+        WhatsApp
+      </a>
+    </div>
+  </header>
+
   <!-- 1. HERO SECTION (Topo da página) -->
-  <section class="hero">
+  <section class="hero" id="hero">
     <div class="container hero-container">
       
       <!-- COLUNA DA ESQUERDA: Textos e Botão -->
@@ -43,7 +63,7 @@
   </section>
 
   <!-- 2. POR QUE INVESTIR EM UMA FACHADA -->
-  <section class="features">
+  <section class="features" id="features">
     <div class="container">
       <h2 class="section-title">Por que o Design Certo Faz Diferença?</h2>
       <p class="section-subtitle">O visual da sua loja física é o primeiro vendedor do seu produto.</p>
@@ -66,7 +86,7 @@
   </section>
 
   <!-- 3. GALERIA / CARDS DOS SEUS TRABALHOS -->
-  <section class="portfolio">
+  <section class="portfolio" id="portfolio">
     <div class="container">
       <h2 class="section-title">Projetos em Destaque</h2>
       <p class="section-subtitle">Confira alguns conceitos de fachadas e identidades visuais:</p>
@@ -77,6 +97,76 @@
         </div>
       </div>
     </div>
+
+    <div style="text-align: center; margin-top: 40px;" data-aos="fade-up">
+    <a href="https://wa.me/5593991478073?text=Olá!%20Gostaria%20de%20um%20orçamento%20para%20fachada/logo." class="btn-whatsapp" target="_blank">
+      Solicitar Orçamento Grátis
+    </a>
+  </div>
+
+  </section>
+
+  <!-- 4. PERGUNTAS FREQUENTES (FAQ ACCORDION) -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <h2 class="section-title">Dúvidas Frequentes</h2>
+      <p class="section-subtitle">Tudo o que você precisa saber antes de iniciar o seu projeto:</p>
+
+      <div class="faq-container" data-aos="fade-up">
+
+        <!-- Pergunta 1 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Como funciona a criação do projeto de fachada à distância?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>É muito simples! Você nos envia as fotos da sua fachada atual e as medidas aproximadas. Desenvolvemos o projeto em 3D realista para você visualizar exatamente como ficará antes de produzir.</p>
+          </div>
+        </div>
+
+        <!-- Pergunta 2 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Quais arquivos eu recebo ao final do projeto?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Você recebe as imagens em alta resolução em 3D para apresentação e aprovação, além dos arquivos vetoriais (PDF/EPS/CDR) prontos para enviar direto para a gráfica ou empresa de comunicação visual.</p>
+          </div>
+        </div>
+
+        <!-- Pergunta 3 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Qual é o prazo médio de entrega?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>O prazo médio para a apresentação da primeira versão em 3D é de 3 a 5 dias úteis após o envio das informações e medidas do local.</p>
+          </div>
+        </div>
+
+        <!-- Pergunta 4 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Posso pedir alterações se não gostar de algo?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Com certeza! Realizamos os ajustes necessários na maquete 3D até que o projeto fique exatamente do jeito que você planejou para a sua loja.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 40px;" data-aos="fade-up">
+    <a href="https://wa.me/5593991478073?text=Olá!%20Gostaria%20de%20um%20orçamento%20para%20fachada/logo." class="btn-whatsapp" target="_blank">
+      Solicitar Orçamento Grátis
+    </a>
+  </div>
+
   </section>
 
   <!-- RODAPÉ -->
@@ -94,5 +184,18 @@
       once: true
     });
   </script>
+
+  <script>
+    // Lógica para o FAQ Accordion
+    const faqQuestions = document.querySelectorAll('.faq-question');
+
+    faqQuestions.forEach(question => {
+      question.addEventListener('click', () => {
+        const item = question.parentElement;
+        item.classList.toggle('active');
+      });
+    });
+  </script>
+
 </body>
 </html>
